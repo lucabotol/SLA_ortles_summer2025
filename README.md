@@ -1,0 +1,1 @@
+In questa relazione si andrà ad esporre il procedimento ed i risultati relativi allo studio della componente di copertura nevosa nel versante trentino dell'Ortles-Cevedale, durante il periodo estivo 2025.

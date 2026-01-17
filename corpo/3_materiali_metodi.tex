@@ -1,0 +1,29 @@
+\section{Materiali e metodi}
+\subsection{Immagini satellitari}
+
+\subsection{Perimetrazione del ghiacciaio}
+Il comportamento della neve al suolo e dei ghiacciai è correlato l'uno con l'altro, sia per cause climatico-meteorologiche che per cause topografiche.\\
+Per questo motivo, si è scelto di considerare anche il ritiro del ghiacciaio, dell'Ortles-Cevedale, confrontando la situazione al 2015 ed al 2022 (\cref{fig:ghiacciaio_2015_2022}).\\
+Osservando visivamente le due condizioni, soprattutto nella zona più settentrionale ed a quote inferiori, è possibile notare una serie di riduzioni areali del ghiacciaio.
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=0.8\textwidth]{immagini/ghiacciaio_2015_2022.pdf}
+    \caption{Perimetrazione dell'estensione del ghiacciaio dell'Ortles-Cevedale al 2015 (poligoni verdi) ed al 2022 (campitura arancione).}
+    \label{fig:ghiacciaio_2015_2022}
+\end{figure}
+
+\subsection{Indice NDSI}
+Al fine della valutazione della presenza al terreno di copertura nevosa, è stato scelto di applicare alle immagini satellitari l'indice NDSI.\\
+Questo indice utilizza le bande del verde e dello SWIR , in modo da riconoscere la presenza di neve al suolo, differenziandola dalle nuvole (con riflettanza simile) \cite{NDSI_1994}: 
+\begin{equation}
+    NDSI = \frac{VERDE - SWIR}{VERDE + SWIR}
+\end{equation} 
+Utilizzando il materiale satellitare di Sentinel-2, la formula dell'indice diventa:
+\begin{equation}
+    NDSI = \frac{B3 - B11}{B3 + B11}
+\end{equation}
+Si è scelto di considerare neve al suolo ogni cella risultante con valore di indice superiore a 0.42 \cite{sentinel_hub_ndsi}.
+
+\subsection{Modello Digitale del Terreno}
+Al fine di conoscere la distribuzione spaziale della neve al suolo, è stata utilizzato il modello digitale del terreno (DTM) della Provincia Autonoma di Trento (al 2006) \cite{pat_dtm_2006}.\\
+Da tale modello sono state estratte le fasce altimetriche del terreno con un passo delle isoipse di 20 metri altimetrici. Infine, sono state isolate solamente le fasce altimetriche del rilievo dei ghiacciai al 2015 (\cref{fig:dtm_valdisole}).
