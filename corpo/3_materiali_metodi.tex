@@ -1,19 +1,49 @@
 \section{Materiali e metodi}
 \subsection{Immagini satellitari}
+Lo svolgimento di questa relazione si è basata sull'analisi delle immagini satellitari ricavate dalla missione europea di Sentinel-2 \cite{esa_sentinel2}.\\
+La coppia di satelliti (con un tempo di ritorno di 10 giorno ciascuno) permette di ottenere una rappresentazione della condizione del terreno ogni 5 giorni.\\
+L'acquisizione delle immagini avviene in 13 bande, con risoluzioni spaziali che possono essere di 10, 20 o 60 metri (a seconda della frequenza rilevata).\\
+Le risorse acquisite dalla missione Sentinel-2 sono liberamente consultabili dal sito web del programma europeo Copernicus \cite{copernicus_browser_2026}.\\
+In tutto, sono stati scaricati 17 rilievi satellitari riguardanti la zona di studio, in un periodo che intercorre tra inizio maggio a fine settembre 2025.\\
+Sfortunatamente, alcune immagini satellitari sono state scartate, data la grande quantità di nuvole rilevate dal sensore.\\
+Sono stati scelti, e quindi utilizzati, 13 rilievi satellitari (tabella \ref{tab:imm_sentinel}).
+\begin{table}[H] \centering
+    \caption{Periodi di acquisizione di dati territoriali, mediante Sentinel-2.}
+\begin{tabular}{cc}
+\toprule
+ \makecell {Data di acquisizione \\dell'immagine}        & Annotazioni \\
+\midrule
+02/05/2025                            &             \\
+30/05/2025                            &             \\
+09/06/2025                            &             \\
+13/06/2025                            &             \\
+19/06/2025 &presenza di poche nuvole a bassa quota  \\
+09/07/2025 &presenza di poche nuvole a bassa quota  \\
+08/08/2025 &presenza di poche nuvole a bassa quota  \\
+13/08/2025                            &             \\
+18/08/2025                            &             \\
+25/08/2025                            &             \\
+17/09/2025                            &             \\
+19/09/2025                            &             \\
+29/09/2025      & grande presenza di neve fresca           \\
+\bottomrule
+\end{tabular}
+\label{tab:imm_sentinel}
+\end{table}
 
-\subsection{Perimetrazione del ghiacciaio}
-Il comportamento della neve al suolo e dei ghiacciai è correlato l'uno con l'altro, sia per cause climatico-meteorologiche che per cause topografiche.\\
-Per questo motivo, si è scelto di considerare anche il ritiro del ghiacciaio, dell'Ortles-Cevedale, confrontando la situazione al 2015 ed al 2022 (\cref{fig:ghiacciaio_2015_2022}).\\
-Osservando visivamente le due condizioni, soprattutto nella zona più settentrionale ed a quote inferiori, è possibile notare una serie di riduzioni areali del ghiacciaio.
-\begin{figure}[hbt]
-    \centering
-    \includegraphics[width=0.8\textwidth]{immagini/ghiacciaio_2015_2022.pdf}
-    \caption{Perimetrazione dell'estensione del ghiacciaio dell'Ortles-Cevedale al 2015 (poligoni verdi) ed al 2022 (campitura arancione).}
-    \label{fig:ghiacciaio_2015_2022}
-\end{figure}
+%\subsection{Perimetrazione del ghiacciaio}
+%Il comportamento della neve al suolo e dei ghiacciai è correlato l'uno con l'altro, sia per cause climatico-meteorologiche che per cause topografiche.\\
+%Per questo motivo, si è scelto di considerare anche il ritiro del ghiacciaio, dell'Ortles-Cevedale, confrontando la situazione al 2015 ed al 2022 (\cref{fig:ghiacciaio_2015_2022}).\\
+%Osservando visivamente le due condizioni, soprattutto nella zona più settentrionale ed a quote inferiori, è possibile notare una serie di riduzioni areali del ghiacciaio.
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{immagini/ghiacciaio_2015_2022.pdf}
+%    \caption{Perimetrazione dell'estensione del ghiacciaio dell'Ortles-Cevedale al 2015 (poligoni verdi) ed al 2022 (campitura arancione).}
+%    \label{fig:ghiacciaio_2015_2022}
+%\end{figure}
 
 \subsection{Indice NDSI}
-Al fine della valutazione della presenza al terreno di copertura nevosa, è stato scelto di applicare alle immagini satellitari l'indice NDSI.\\
+Al fine della valutazione della presenza al terreno di copertura nevosa, è stato scelto di applicare alle immagini satellitari l'indice NDSI (Normalized Difference Snow Index).\\
 Questo indice utilizza le bande del verde e dello SWIR , in modo da riconoscere la presenza di neve al suolo, differenziandola dalle nuvole (con riflettanza simile) \cite{NDSI_1994}: 
 \begin{equation}
     NDSI = \frac{VERDE - SWIR}{VERDE + SWIR}
@@ -22,8 +52,69 @@ Utilizzando il materiale satellitare di Sentinel-2, la formula dell'indice diven
 \begin{equation}
     NDSI = \frac{B3 - B11}{B3 + B11}
 \end{equation}
-Si è scelto di considerare neve al suolo ogni cella risultante con valore di indice superiore a 0.42 \cite{sentinel_hub_ndsi}.
+Si è scelto di considerare una cella come innevata se il risultato dell'indice supera il valore soglia di 0.42 \cite{sentinel_hub_ndsi}.\\
+In figura \ref{fig:ndsi_0906_1808} è possibile osservare l'applicazione dell'indice per due periodi differenti, ovvero ad inizio ed a metà estate.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{immagini/ndsi_0906_1808.pdf}
+    \caption{Condizioni di neve al suolo per la medesima area, secondo l'indice NDSI, al 9 giugno 2025 (a sinistra) ed al 18 agosto 2025 (a destra). Il poligono rosso indica la delimitazione della Val de la Mare. Sullo sfondo è riportata l'immagine Google Satellite.}
+    \label{fig:ndsi_0906_1808}
+\end{figure}
+
 
 \subsection{Modello Digitale del Terreno}
-Al fine di conoscere la distribuzione spaziale della neve al suolo, è stata utilizzato il modello digitale del terreno (DTM) della Provincia Autonoma di Trento (al 2006) \cite{pat_dtm_2006}.\\
-Da tale modello sono state estratte le fasce altimetriche del terreno con un passo delle isoipse di 20 metri altimetrici. Infine, sono state isolate solamente le fasce altimetriche del rilievo dei ghiacciai al 2015 (\cref{fig:dtm_valdisole}).
+Al fine di conoscere la distribuzione spaziale della neve al suolo, è stato utilizzato il modello digitale del terreno (DTM) della Val di Sole (al 2006), ritagliato sui confini della Val de la Mare. La risoluzione spaziale del DTM è di 30 m.\\
+Da tale modello, mediante una maschera, sono state rimosse tutte le celle del raster con pendenza superiore $30^{\circ}$. Infatti, ad elevate pendenze, lo scivolamento verso valle della neve diventa eccessivo, inducendo degli errori nella valutazione della quota nivale di un versante (\cref{fig:dtm_valdelamare_min30gr}).\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{immagini/dtm_valdelamare_min30gr.pdf}
+    \caption{DTM della Val de la Mare, depurato dalle celle con pendenza superiore i $30^{\circ}$.}
+    \label{fig:dtm_valdelamare_min30gr}
+\end{figure}
+Infine, da ogni cella del modello risultante, sono stati estratti i centroidi (ovvero è stato creato un layer vettoriale di punti).\\
+Tali punti al suolo sono stati utilizzati per campionare le informazioni di presenza neve, ricavati dall'applicazione dell'indice NDSI.
+
+\subsection{Workflow su QGIS ed Excel}
+La prima parte dello studio è stata svolta su QGIS, con il fine di conoscere la quantità di celle del raster considerate innevate (\cref{fig:model_ndsi}). \\
+É stato necessario valutare visivamente la bontà delle immagini telerilevate, al fine di valutare la sufficiente assenza di copertura nuvolosa.\\
+Inoltre, oltre al campionamento del raster risultante dall'indice NDSI, è stato effettuato il conteggio delle celle considerate (dal raster SCL) nuvolose. In questo modo è possibile effettuare una veloce valutazione sulla bontà del risultato dell'indice.\\
+Il layer vettoriale riportante i dati campionati (delle celle innevate, nuvolose ed altimetriche) è stato importato in Excel.\\
+Dopo aver suddiviso l'area in fasce altimetriche con intervalli di 20 metri, si è proceduto al conteggio dei punti ricadenti in ciascuna classe di quota ed è stato effettuato il conteggio delle celle considerate innevate e nuvolose.\\
+Infine, per ogni classe altimetrica e periodo di osservazione, è stata calcolata la frazione di celle innevate rispetto al totale. Le fasce caratterizzate da una copertura nevosa superiore al $50\%$ sono state classificate come ``fasce innevate".
+\begin{figure} \centering
+\begin{tikzpicture}
+    % 1. Definiamo i nodi (i blocchi)
+    % [stile] (nome_identificativo) {testo visualizzato};
+    \node[draw, rectangle] (B3) at (4,0) {B3};
+    \node[draw, rectangle] (B11) at (6,0) {B11};
+    \node[draw, rectangle] (area_analisi) at (9,0) {area di analisi};
+    \node[draw, rectangle] (campionamento) at (4,4) {campionamento};
+    \node[draw, rectangle, minimum width=3cm, align=center] (raster_calculator) at (8, 2) {calcolatore\\raster};
+    \node[draw, circle] (NDSI) at (8, 4) {NDSI};
+    \node[draw, rectangle] (DTM) at (13,-1.5) {DTM};
+    \node[draw, rectangle] (layer_style) at (12,4) {stile del layer};
+    \node[draw, rectangle] (NDSI042) at (6,7.5) {$NDSI > 0.42$};
+    \node[draw, rectangle, minimum width=3cm, align=center] (occhio) at (13,0) {valutazione assenza\\ nuvole};
+    \node[draw, rectangle, minimum width=3cm, align=center] (raster_calculator2) at (8, 6) {calcolatore\\raster};
+    \node[draw, rectangle, minimum width=2cm, align=center] (dtm_30g) at (9, -1.5) {rimoz. celle\\pend.$<=30^{\circ}$\\del DTM};
+    \node[draw, rectangle, minimum width=2cm, align=center] (punti_centroidi) at (3, -1.5) {trasformazione\\DTM$\rightarrow$punti};
+
+    % 2. Colleghiamo i nodi con una freccia
+    % [stile_freccia] (partenza) -- (arrivo);
+    \draw[-{Stealth}] (B3) -- (raster_calculator);
+    \draw[-{Stealth}] (B11) -- (raster_calculator);
+    \draw[-{Stealth}] (occhio) -- (raster_calculator);
+    \draw[-{Stealth}] (DTM) -- (dtm_30g);
+    \draw[-{Stealth}] (dtm_30g) -- (area_analisi);
+    \draw[-{Stealth}] (dtm_30g) -- (punti_centroidi);
+    \draw[-{Stealth}] (area_analisi) -- (raster_calculator);
+    \draw[-{Stealth}] (area_analisi) -- (raster_calculator);
+    \draw[-{Stealth}] (raster_calculator) -- (NDSI);
+    \draw[-{Stealth}] (layer_style) -- (NDSI);
+    \draw[-{Stealth}] (NDSI) -- (raster_calculator2);
+    \draw[-{Stealth}] (raster_calculator2) -- (NDSI042);
+    \draw[-{Stealth}] (punti_centroidi) -- (campionamento);
+    \draw[-{Stealth}] (campionamento) -- (NDSI042);
+\end{tikzpicture} 
+\caption{Schema concettuale utilizzato per ottenere il raster sulla presenza di copertura nevosa al suolo. Tale flusso di lavoro è stato utilizzato per creare un modello in QGIS.}
+\label{fig:model_ndsi} \end{figure}
