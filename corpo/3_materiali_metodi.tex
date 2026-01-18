@@ -57,7 +57,7 @@ In figura \ref{fig:ndsi_0906_1808} è possibile osservare l'applicazione dell'in
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{immagini/ndsi_0906_1808.pdf}
-    \caption{Condizioni di neve al suolo per la medesima area, secondo l'indice NDSI, al 9 giugno 2025 (a sinistra) ed al 18 agosto 2025 (a destra). Il poligono rosso indica la delimitazione della Val de la Mare. Sullo sfondo è riportata l'immagine Google Satellite.}
+    \caption{Condizioni di neve al suolo per la medesima area, secondo l'indice NDSI, al 9 giugno 2025 (a sinistra) ed al 18 agosto 2025 (a destra). Il poligono rosso indica la delimitazione della Val de la Mare, mentre sullo sfondo è riportato il rilievo di Google Satellite (e non la relativa immagine TCI di Sentinel-2).}
     \label{fig:ndsi_0906_1808}
 \end{figure}
 
@@ -76,8 +76,8 @@ Tali punti al suolo sono stati utilizzati per campionare le informazioni di pres
 
 \subsection{Workflow su QGIS ed Excel}
 La prima parte dello studio è stata svolta su QGIS, con il fine di conoscere la quantità di celle del raster considerate innevate (\cref{fig:model_ndsi}). \\
-É stato necessario valutare visivamente la bontà delle immagini telerilevate, al fine di valutare la sufficiente assenza di copertura nuvolosa.\\
-Inoltre, oltre al campionamento del raster risultante dall'indice NDSI, è stato effettuato il conteggio delle celle considerate (dal raster SCL) nuvolose. In questo modo è possibile effettuare una veloce valutazione sulla bontà del risultato dell'indice.\\
+É stato necessario valutare visivamente la validità delle immagini telerilevate, al fine di valutare la sufficiente assenza di copertura nuvolosa.\\
+Inoltre, oltre al campionamento del raster risultante dall'indice NDSI, è stato effettuato il conteggio delle celle considerate (dal raster SCL) nuvolose. In questo modo è possibile effettuare una veloce valutazione sul risultato dell'indice.\\
 Il layer vettoriale riportante i dati campionati (delle celle innevate, nuvolose ed altimetriche) è stato importato in Excel.\\
 Dopo aver suddiviso l'area in fasce altimetriche con intervalli di 20 metri, si è proceduto al conteggio dei punti ricadenti in ciascuna classe di quota ed è stato effettuato il conteggio delle celle considerate innevate e nuvolose.\\
 Infine, per ogni classe altimetrica e periodo di osservazione, è stata calcolata la frazione di celle innevate rispetto al totale. Le fasce caratterizzate da una copertura nevosa superiore al $50\%$ sono state classificate come ``fasce innevate".
