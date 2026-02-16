@@ -1,42 +1,8 @@
-\section{Valutazione risultati e conclusione}
-Dopo aver processato i dati satellitari, è fondamentale validare i risultati ottenuti per verificare la scalabilità del metodo ad altri siti di studio.\\
-A tal fine, le informazioni ricavate sono state confrontate con i dati gentilmente condivisi dal Prof. Luca Carturan, acquisiti tramite una webcam dedicata al monitoraggio del Ghiacciaio de la Mare.\\
-I risultati di questa relazione sono stati riportati assieme alle indicazioni del Prof. Carturan, nella tabella \ref{table:confronto}.
-\begin{table}[H] \centering
-    \caption{Confronto tra i risultati ricavati dai dati satellitari Sentinel-2 (ed indice NDSI) e le osservazioni effettuate mediante webcam (con l'obiettivo diretto verso il ghiacciaio de la Mare).}
-\begin{tabular}{ccc}
-    \toprule
-           & \makecell{Snow line rilevata\\da indice (m s.l.m.)} & \makecell{Bilancio sul Ghiacciaio\\de la Mare (m s.l.m.)}  \\
-    \midrule
-02/05/2025 & 2260       &     \\
-30/05/2025 & 2460       &      \\
-09/06/2025 & 2680       &      \\
-10/06/2025 &            & 2600/2700 \\
-13/06/2025 & 2800       &      \\
-19/06/2025 & 3060       &     \\
-30/06/2025 &            & 3100 \\
-09/07/2025 & 3060       &      \\
-08/08/2025 & 3280       &      \\
-10/08/2025 &            & 3200/3300 \\
-13/08/2025 & 3280       &      \\
-15/08/2025 &            & 3300 \\
-18/08/2025 & 3280       &      \\
-25/08/2025 & 3320       &      \\
-27/08/2025 &            & 3300 \\
-17/09/2025 & 3280       &      \\
-19/09/2025 & 3280       & (nevicata)     \\
-29/09/2025 & 2600       &      \\
-        \midrule
-\end{tabular}
-\label{table:confronto}
-\end{table}
-È possibile notare come ci sia un ridotto scarto tra i valori osservati e quelli ricavati dai prodotti Sentinel-2. I risultati ottenuti dimostrano l'efficacia e la relativa accuratezza dell'indice NDSI, validandone l'impiego per il monitoraggio preliminare e multitemporale del manto nevoso.\\
-Dalle analisi effettuate è emersa una criticità del modello NDSI nel distinguere correttamente il ghiaccio scoperto dalla neve (soprattutto se esposto verso sud); in tali condizioni, l'indice non sempre riesce a garantire una discriminazione ottimale delle superfici.\\
-Infatti, è stato notato che l'indice tende a sovrastimare l'area innevata, poiché include anche le aree ghiacciate. Per tale motivo, prima di effettuare uno studio sulla copertura nevosa, sarebbe da effettuare una  delimitazione areale del terreno coperto da ghiacciaio.\\
-In letteratura esistono diverse metodologie o indici per effettuare il riconoscimento della presenza di ghiacciai, mediante prodotti ricavati da remote sensing. I due principali indici applicati sono il rapporto tra il NIR e lo SWIR, ed il NDGI (Normalized Difference Glacier Index):
-\begin{equation}
-    NDGI = \frac{Verde - Rosso}{Verde + Rosso} = \frac{B3-B4}{B3+B4}
-\end{equation} 
-Al contrario di quanto riguarda il NDSI, la definizione del valore soglia per questi due indici è più complessa, e può variare in base alla regione di analisi. Inoltre, l'affidabilità di questi metodi è inferiore rispetto al NDSI dato l'affioramento in superficie di corpi detritici.\\
-Una possibile alternativa all'applicazione di indici specifici sui ghiacciai sarebbe potuta essere l'implementazione di un modello di classificazione automatica di immagini satellitari (mediante il plugin per QGIS denominato ``Semi-Automatic Classification''). La metodologia avrebbe previsto l'addestramento del classificatore mediante un'unica acquisizione di riferimento, al fine di estendere ed automatizzare il riconoscimento delle superfici glaciali all'intera serie temporale considerata.\\
-Data la difficoltà nell'affrontare il tema del riconoscimento dei ghiacciai, è stato scelto di ridurre la zona di studio ad un'area con minore presenza di ghiacciai (che inizialmente prevedeva il versante trentino dell'Ortles-Cevedale). 
+\section{Conclusioni}
+Al fine di conoscere la condizione della rinnovazione naturale della Foresta del Cansiglio, in seguito agli schianti da vento dovuti alla Tempesta Vaia (ottobre-novembre 2018), sono state compiute delle analisi in campo: sono state analizzate 3 aree di saggio circolati di un popolamento soggetto a schianti da vento ed un transetto rettangolare comprendente una superficie intatta.\\
+I risultati relativi alle aree disturbate dalla tempesta sono differenti, sia per quanto riguarda la quantità di necromassa presente e sia per la condizione di rinnovazione.\\
+Il sito con la condizione di rinnovazione migliore si presentava con una copertura arborea del 90\% ed una quantità di necromassa di 181.60 $m^3/ha$. Invece, il sito con la condizione di rinnovazione peggiore presentava una copertura arborea del 5\%, con una quantità di necromassa di 116 $m^3/ha$.\\
+La presenza di neve al suolo ha reso maggiormente difficoltosa la valutazione della copertura vegetale al suolo, e di conseguenza maggiormente soggetta ad errori.\\
+Data l'importanza del processo di rinnovazione, risulta necessaria la ripetizione in futuro di analisi in campo.
+
+\includepdf[pages=-,landscape=true]{immagini/kramer_doppiepagine.pdf}
